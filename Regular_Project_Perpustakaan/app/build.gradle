@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral() // Repository for dependencies
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:31.1-jre' // Guava library for utilities
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1' // JUnit for testing
+    implementation 'mysql:mysql-connector-java:8.0.32' // MySQL JDBC driver
+}
+
+application {
+    mainClassName = 'gui.LoginFrame' // Entry point of the application
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8' // Set file encoding to UTF-8
+}
+
+tasks.compileJava.doLast {
+    println 'Finished compiling Java source files' // Confirmation message after compilation
+}
